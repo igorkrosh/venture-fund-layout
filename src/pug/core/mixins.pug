@@ -1,0 +1,38 @@
+include modal
+
+mixin IncludeCSS(filename)
+    - let path = `assets/css/${filename}`
+    link(rel="stylesheet", href=path)
+
+mixin IncludeJS(filename)
+    - let path = `assets/js/${filename}`
+    script(src=path)
+
+mixin InputRadio(name, label)
+    label.radio= label
+        input(type="radio" name=name)
+        span.checkmark
+
+mixin BtnMenu()
+    button.btn__menu
+        span
+
+mixin Title(icon, title)
+    .title-wrapper
+        .title
+            if icon
+                img.icon(src=icon)
+            h1= title
+
+mixin Project(title, desc, income, deposit, bg)
+    .project
+        img.bg(src=bg)
+        .project-title= title
+        .desc= desc
+        .project-footer
+            .text-wrapper
+                .text Доходность:
+                    span= income
+                .text Минимальный депозит:
+                    span= deposit
+            button.btn Подробнее

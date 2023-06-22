@@ -1,0 +1,65 @@
+include core/mixins
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        include core/head
+    body
+        .navbar
+            .links-wrapper
+                a.link(href="#")
+                    img(src="/assets/images/icons/link.png")
+                a.link(href="#")
+                    img(src="/assets/images/icons/user.png")
+                a.link(href="#")
+                    img(src="/assets/images/icons/gallery.png")
+            a(href="#").nav-link.balance
+                span Ваш баланс:
+                b 4 715 621 р.
+                img(src="/assets/images/icons/navbar-link.png")
+            a(href="#").nav-link.funds
+                span Вывод доступных средств
+                img(src="/assets/images/icons/navbar-link.png")
+        .page
+            include core/sidebar
+            .content
+                .container
+                    .title-wrapper.mb-15
+                        .title
+                            img(src="/assets/images/icons/title/1.png")
+                            h1 Общая статистика
+                        .filter-wrapper
+                            .btn-wrapper
+                                button.active Сегодня
+                                button За неделю
+                            .select-wrapper
+                                select
+                                    option Выберите период
+                                    option за 30 дней
+                                    option за 90 дней
+                                    option за год
+                    .subtitle Данные по доходам за сегодня
+                    .stats-wrapper
+                        .stats
+                            b 324 000 р.
+                            span Ваш суммарный <br> доход по всем проектам
+                        .stats
+                            b 27%
+                            span Ваша доходность <br> от вложенного депозита
+                        .stats
+                            b 54
+                            span Дней до окончания <br> инвестиционного периода
+                    .chart-wrapper.bg
+                        canvas#chart(width="100%" height="100%")
+                    .recomended-block
+                        +Title('', 'Рекомендуем проекты')
+                        .project-wrapper
+                            +Project('Проект «Название»', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.', '40% \\ 7 мес.', '20 000 р.', '/assets/images/project-bg.jpg')
+                            +Project('Проект «Название»', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.', '40% \\ 7 мес.', '20 000 р.','/assets/images/project-bg.jpg')
+
+
+        include core/scripts

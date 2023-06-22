@@ -1,0 +1,30 @@
+mixin Menu(title, arMenu)
+    .menu
+        if title
+            span.menu-title= title
+        each item in arMenu
+            a.link(href="#")
+                img(src=item[0])
+                span= item[1]
+.sidebar
+
+    .userblock
+        img.avatar(src="/assets/images/user-avatar.png")
+        span.name Иван Иванов
+        span.role Администратор
+    -
+        let arMenu = [
+                ['/assets/images/icons/menu/1.png', 'Общая статистика'],
+                ['/assets/images/icons/menu/2.png', 'Проекты'],
+                ['/assets/images/icons/menu/3.png', 'Обратная связь'],
+                ['/assets/images/icons/menu/4.png', 'История операций'],
+            ];
+    +Menu('', arMenu)
+    -
+        let arMenu2 = [
+            ['/assets/images/icons/menu/5.png', 'Пользователи'],
+            ['/assets/images/icons/menu/6.png', 'Добавить пользователя'],
+            ['/assets/images/icons/menu/7.png', 'Управление проектами'],
+            ['/assets/images/icons/menu/8.png', 'Управление балансом'],
+        ];
+    +Menu('Администрирование', arMenu2)
