@@ -1,0 +1,44 @@
+mixin Ticket(title, date, status)
+    .ticket
+        .text
+            b= title
+            span.date= date
+        .status-wrapper
+            .status= status
+
+include core/mixins
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        include core/head
+    body
+        include core/navbar
+        .page
+            include core/sidebar
+            .content
+                .container
+                    +Title('/assets/images/icons/title/5.png', 'Обратная связь')
+                    .page-callback.bg
+                        .tickets-wrapper
+                            +Ticket('В каком проекте лучше участвовать?', '13.06.2023', 'Ответ получен')
+                            +Ticket('В каком проекте лучше участвовать?', '13.06.2023', 'Ответ получен')
+                        .btn-wrapper
+                            button.btn Задать вопрос
+                        .support-wrapper
+                            b Так же вы можете задать свой вопрос в наших мессенджерах:
+                            .support
+                                span Телеграм-бот
+                                img(src="/assets/images/icons/support/telegram.png")
+                            .support
+                                span WhatsApp
+                                img(src="/assets/images/icons/support/whatsapp.png")
+
+
+
+
+        include core/scripts

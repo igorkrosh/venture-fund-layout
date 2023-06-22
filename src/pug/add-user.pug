@@ -1,0 +1,57 @@
+include core/mixins
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        include core/head
+    body
+        include core/navbar
+        .page
+            include core/sidebar
+            .content
+                .container
+                    +Title('/assets/images/icons/title/4.png', 'Добавить пользователя')
+                    .page-add-user.bg
+                        form.add-user
+                            .row
+                                .input-wrapper
+                                    label Имя
+                                    input.input(placeholder="Иван")
+                                .input-wrapper
+                                    label Фамилия
+                                    input.input(placeholder="Иванов")
+                            .row
+                                .input-wrapper
+                                    label Дата рождения
+                                    input.input(type="date")
+                                .input-wrapper
+                                    label Город
+                                    input.input(placeholder="Москва")
+                            .row
+                                .input-wrapper
+                                    label Номер телефона
+                                    input.input(placeholder="891234589")
+                                .input-wrapper
+                                    label E-mail
+                                    input.input(placeholder="mail@mail.ru")
+                            .row
+                                .input-wrapper
+                                    label Логин
+                                    input.input(placeholder="login")
+                                .input-wrapper
+                                    label Пароль
+                                    input.input(placeholder="password")
+                            .row.center
+                                .input-wrapper
+                                    label Уровень доступа
+                                    .select
+                                        select
+                                            option Преподаватель
+                        .btn-wrapper
+                            button.btn Сохранить
+
+        include core/scripts
