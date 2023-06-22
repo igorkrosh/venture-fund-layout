@@ -607,3 +607,36 @@ input.input::placeholder
     height: 6px;
     background: url("/assets/images/icons/select-arrow-white.png");
 }
+
+.page-projects
+{
+    .filter-wrapper
+    {
+        display: flex;
+        padding: 40px 0;
+
+        .select
+        {
+            margin-right: 40px;
+        }
+
+        .sort-wrapper
+        {
+            .select
+            {
+                margin-right: 6px;
+            }
+
+            span
+            {
+                font-size: 14px;
+                margin-right: 20px;
+            }
+        }
+    }
+
+    .project-wrapper
+    {
+        padding-top: 50px;
+    }
+}

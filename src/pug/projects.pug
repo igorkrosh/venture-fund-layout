@@ -1,0 +1,47 @@
+include core/mixins
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        include core/head
+    body
+        include core/navbar
+        .page
+            include core/sidebar
+            .content
+                .container
+                    +Title('/assets/images/icons/title/3.png', 'Проекты')
+                    .page-projects
+                        .filter-wrapper.bg
+                            .select
+                                select
+                                    option Поиск по проекту
+                                    option Проект 1
+                                    option Проект 2
+                                    option Проект 3
+                                    option Проект 4
+                            .sort-wrapper
+                                span Сортировка:
+                                .select
+                                    select
+                                        option По длительности
+                                .select
+                                    select
+                                        option По прибыли
+                        .project-wrapper
+                            +Project('Проект «Название»', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.', '40% \\ 7 мес.', '20 000 р.', '/assets/images/project-bg.jpg')
+                            +Project('Проект «Название»', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.', '40% \\ 7 мес.', '20 000 р.', '/assets/images/project-bg.jpg')
+                            +Project('Проект «Название»', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.', '40% \\ 7 мес.', '20 000 р.', '/assets/images/project-bg.jpg')
+                            +Project('Проект «Название»', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.', '40% \\ 7 мес.', '20 000 р.', '/assets/images/project-bg.jpg')
+                            +Project('Проект «Название»', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.', '40% \\ 7 мес.', '20 000 р.', '/assets/images/project-bg.jpg')
+                            +Project('Проект «Название»', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.', '40% \\ 7 мес.', '20 000 р.', '/assets/images/project-bg.jpg')
+
+
+
+
+
+        include core/scripts
