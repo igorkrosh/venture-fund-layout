@@ -9,21 +9,7 @@ html(lang="ru")
         title Document
         include core/head
     body
-        .navbar
-            .links-wrapper
-                a.link(href="#")
-                    img(src="/assets/images/icons/link.png")
-                a.link(href="#")
-                    img(src="/assets/images/icons/user.png")
-                a.link(href="#")
-                    img(src="/assets/images/icons/gallery.png")
-            a(href="#").nav-link.balance
-                span Ваш баланс:
-                b 4 715 621 р.
-                img(src="/assets/images/icons/navbar-link.png")
-            a(href="#").nav-link.funds
-                span Вывод доступных средств
-                img(src="/assets/images/icons/navbar-link.png")
+        include core/navbar
         .page
             include core/sidebar
             .content

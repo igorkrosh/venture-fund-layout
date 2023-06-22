@@ -231,7 +231,6 @@
         display: flex;
         align-items: center;
 
-
         .btn-wrapper
         {
             display: flex;
@@ -429,4 +428,182 @@
     font-size: 17px;
     font-weight: 600;
     font-family: "OpenSans";
+}
+
+.users-page
+{
+    .filter-wrapper
+    {
+        padding-top: 30px;
+        padding-bottom: 45px;
+        .row
+        {
+            margin-bottom: 15px;
+        }
+
+        .radio
+        {
+            font-size: 14px;
+            font-weight: 700;
+            .checkmark
+            {
+                border-radius: 3px;
+                background: none;
+                border: 1px solid #dedede;
+            }
+
+            .checkmark:after
+            {
+                border-radius: 0;
+                background: white;
+                width: 5px;
+                height: 5px;
+            }
+
+            input:checked~.checkmark
+            {
+                background: #80a6b4;
+                border-color: #80a6b4;
+            }
+        }
+    }
+
+    .users-count
+    {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .table-wrapper
+    {
+        background: #0f1827;
+        padding-bottom: 45px;
+    }
+
+    .users-table
+    {
+        width: 100%;
+        .row
+        {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #414f5f;
+
+            .col
+            {
+                padding: 15px 25px;
+                width: 20%;
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: left;
+            }
+
+            .role
+            {
+                background: #7da2b0;
+                display: inline-block;
+                padding: 2px 7px;
+                border-radius: 10px;
+            }
+        }
+
+        .row:last-of-type
+        {
+            border-bottom: none;
+        }
+
+        .head
+        {
+            .col
+            {
+                font-weight: 700;
+                padding: 25px;
+            }
+        }
+    }
+
+    .btn-wrapper
+    {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .page-nav
+    {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        margin-top: 30px;
+
+        a, span
+        {
+            font-size: 14px;
+            display: inline-block;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        a.active
+        {
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+}
+
+.input
+{
+    height: 25px;
+    font-family: "OpenSans";
+    background: #0f1827;
+    border: 1px solid #6182a6;
+    color: white;
+    padding: 5px 10px;
+    font-size: 13px;
+    width: 140px;
+    margin-right: 30px;
+    display: inline-block;
+}
+
+input.input::placeholder
+{
+    color: white;
+}
+
+.select
+{
+    display: inline-block;
+    position: relative;
+
+    select {
+        height: 25px;
+        font-family: "OpenSans";
+        background: #0f1827;
+        border: 1px solid #6182a6;
+        color: white;
+        font-size: 13px;
+        padding-left: 10px;
+        padding-right: 20px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+        min-width: 150px;
+    }
+}
+
+.select:after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    margin: auto;
+    width: 7px;
+    height: 6px;
+    background: url("/assets/images/icons/select-arrow-white.png");
 }

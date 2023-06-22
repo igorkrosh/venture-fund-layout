@@ -1,0 +1,71 @@
+include core/mixins
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        include core/head
+    body
+        include core/navbar
+        .page
+            include core/sidebar
+            .content
+                .container
+                    +Title('/assets/images/icons/title/2.png', 'Пользователи')
+                    .users-page.bg
+                        .filter-wrapper
+                            .row
+                                +InputRadio('filter', 'Все')
+                                +InputRadio('filter', 'Администраторы')
+                                +InputRadio('filter', 'Менеджеры')
+                            .row
+                                input.input(placeholder="Поиск по имени" name="name")
+                                .select
+                                    select
+                                        option Поиск по проекту
+                                        option Проект 1
+                                        option Проект 2
+                                        option Проект 3
+                                        option Проект 4
+                            .row
+                                .users-count Количество пользователей:
+                                    span 4792
+                        -let head = ['Пользователь', 'Email', 'Роль', 'Дата регистрации', 'Телефон']
+                        -
+                            let table = [
+                                    ['Иванов Иван Иванович', 'mail@mail.ru', 'Пользователь', '5.06.2023', '+798712345678'],
+                                    ['Иванов Иван Иванович', 'mail@mail.ru', 'Пользователь', '5.06.2023', '+798712345678'],
+                                    ['Иванов Иван Иванович', 'mail@mail.ru', 'Пользователь', '5.06.2023', '+798712345678'],
+                                    ['Иванов Иван Иванович', 'mail@mail.ru', 'Пользователь', '5.06.2023', '+798712345678'],
+                                    ['Иванов Иван Иванович', 'mail@mail.ru', 'Пользователь', '5.06.2023', '+798712345678']
+                            ]
+                        .table-wrapper
+                            .users-table
+                                .row.head
+                                    each item in head
+                                        .col= item
+                                each item in table
+                                    .row
+                                        .col= item[0]
+                                        .col= item[1]
+                                        .col
+                                            .role= item[2]
+                                        .col= item[3]
+                                        .col= item[4]
+                            .btn-wrapper
+                                button.btn Добавить
+                            .page-nav
+                                a(href="#").active 1
+                                a(href="#") 2
+                                a(href="#") 3
+                                span ...
+                                a(href="#") 28
+
+
+
+
+
+        include core/scripts
