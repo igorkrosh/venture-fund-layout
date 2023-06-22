@@ -2,12 +2,22 @@ $(document).ready(Core);
 
 function Core()
 {
-    InitChartJs()
+    InitChartJs();
+
+    SetPaymentSelect();
 }
 
 function InitChartJs()
 {
-    let chart = document.getElementById('chart').getContext('2d'); // Находим Canvas для графика
+    let chart = document.getElementById('chart'); // Находим Canvas для графика
+
+    if (chart == null)
+    {
+        return;
+    }
+
+    chart = chart.getContext('2d');
+
     let label = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'] // Массив с подписями X-оси
 
     let gradient = chart.createLinearGradient(0, 0, 0, 450); // Создаем градиет для первой линии
@@ -70,4 +80,18 @@ function InitChartJs()
         },
 
     });
+}
+
+function SetPaymentSelect()
+{
+    $('.payment-select .selected').on('click', function (e) {
+        $(this).closest('.payment-select').toggleClass('active');
+    })
+
+    $('.payment-select .option').on('click', function (e) {
+        let option = $(this).html();
+
+        $(this).closest('.payment-select').find('.selected').html(option);
+        $(this).closest('.payment-select').toggleClass('active');
+    })
 }

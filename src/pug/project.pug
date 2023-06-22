@@ -1,0 +1,96 @@
+mixin Circle(percent, label, number, small)
+    .stats
+        .circle-wrap
+            -let style = `background-image: conic-gradient(#ffffff ${percent}%, #0d1932 0);`
+            .circle(style=style)
+            .info
+                .text= number
+                    small= small
+        .label= label
+
+include core/mixins
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        include core/head
+    body
+        include core/navbar
+        .page
+            include core/sidebar
+            .content
+                .container
+                    +Title('/assets/images/icons/title/6.png', 'Проект «Название проекта»')
+                    .page-project
+                        .project-stats
+                            img.bg-image(src="/assets/images/project-bg-large.jpg")
+                            +Circle('75', 'Прибыльность инвестиций', '75', '%')
+                            +Circle('27', 'Уже собрано проектом', '25', 'млн')
+                            +Circle('27', 'Длительность взноса', '6', 'мес.')
+                        .btn-block
+                            button.btn Принять участие в проекте
+                        .project-desc.bg
+                            .desc
+                                h2 Описание проекта
+                                p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+                                .btn-wrapper
+                                    button.btn Принять участие в проекте
+                                    button.btn.border О реализаторе
+                            .image
+                                img(src="/assets/images/project-image.jpg")
+                        .invest-wrapper
+                            form.payment
+                                h2 Принять участие в проекте
+                                .input-wrapper
+                                    label Сумма пополнения (руб.)
+                                    input(type="number")
+                                .payment-select-wrapper
+                                    label Сумма пополнения (руб.)
+                                    .payment-select
+                                        .selected
+                                            span Банковская карта
+                                            img(src="/assets/images/icons/payment.png")
+                                        .dropdown
+                                            .option
+                                                span Банковская карта
+                                                img(src="/assets/images/icons/payment.png")
+                                            .option
+                                                span Не банковская карта
+                                                img(src="/assets/images/icons/payment.png")
+                                .btn-wrapper
+                                    button.btn Инвестировать
+                            .required-amount
+                                h2 Необходимая сумма
+                                .progress
+                                    .line(style="width: 40%")
+                                .amount-wrapper
+                                    .amount
+                                        span Собрано
+                                        b 4 001 050 р.
+                                    .amount
+                                        span Необходимо
+                                        b 12 000 000 р.
+                            .prediction-wrapper
+                                span При текущей сумме инвестирования ваш доход через 6 мес. составит:
+                                .prediction 85 000 р.
+                        .recomended-block
+                            +Title('', 'Другие проекты')
+                            .project-wrapper
+                                +Project('Проект «Название»', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.', '40% \\ 7 мес.', '20 000 р.', '/assets/images/project-bg.jpg')
+                                +Project('Проект «Название»', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.', '40% \\ 7 мес.', '20 000 р.','/assets/images/project-bg.jpg')
+
+
+
+
+
+
+
+
+
+
+
+        include core/scripts
