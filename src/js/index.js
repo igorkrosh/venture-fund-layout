@@ -5,6 +5,7 @@ function Core()
     InitChartJs();
 
     SetPaymentSelect();
+    SetHideMenuBtn();
 }
 
 function InitChartJs()
@@ -93,5 +94,12 @@ function SetPaymentSelect()
 
         $(this).closest('.payment-select').find('.selected').html(option);
         $(this).closest('.payment-select').toggleClass('active');
+    })
+}
+
+function SetHideMenuBtn()
+{
+    $('.hide-menu').on('click', function (e) {
+        $('.sidebar').toggleClass('active')
     })
 }

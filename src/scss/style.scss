@@ -3,7 +3,7 @@
     width: 100%;
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 360px 1200px calc(100% - 1200px - 360px);
+    grid-template-columns: 360px calc(100% - 360px * 2);
     background: url("/assets/images/bg.png") #0b1422;
     background-size: cover;
     overflow: hidden;
@@ -207,6 +207,7 @@
 {
     display: flex;
     margin-bottom: 50px;
+    flex-wrap: wrap;
 
     .title
     {
@@ -261,6 +262,8 @@
 {
     font-size: 22px;
     color: #99a9bc;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .select-wrapper
@@ -421,8 +424,8 @@
 {
     background: #1d5d70;
     border-radius: 10px;
-    height: 40px;
-    padding: 0px 30px;
+    min-height: 40px;
+    padding: 3px 30px;
     border: none;
     color: white;
     font-size: 17px;
@@ -900,7 +903,7 @@ input.input::placeholder
 
         .desc
         {
-            width: 50%;
+            width: 530px;
             padding: 40px 40px 40px 0;
 
             h2
@@ -928,7 +931,7 @@ input.input::placeholder
 
         .image
         {
-            width: 50%;
+            width: calc(100% - 530px);
             position: relative;
 
             img
@@ -946,7 +949,7 @@ input.input::placeholder
     .invest-wrapper
     {
         display: grid;
-        grid-template-columns: repeat(2, 535px);
+        grid-template-columns: repeat(2, 49%);
         grid-template-rows: repeat(2, 210px);
         grid-gap: 30px;
         padding-top: 50px;
