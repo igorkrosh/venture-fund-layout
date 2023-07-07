@@ -1,0 +1,21 @@
+include core/mixins
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        include core/head
+    body
+        include core/navbar
+        .page
+            include core/sidebar
+            .content
+                .container
+                    +Title('/assets/images/icons/title/4.png', 'Добавить пользователя')
+                    .page-add-user.bg
+                        +FormUser()
+
+        include core/scripts

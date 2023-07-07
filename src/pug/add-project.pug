@@ -1,0 +1,62 @@
+include core/mixins
+include core/modal
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        include core/head
+    body
+        include core/navbar
+        .page
+            include core/sidebar
+            .content.pb-0
+                .container
+                    +Title('/assets/images/icons/title/3.png', 'Добавить проект')
+                    .add-project-page.bg
+                        form.new-user
+                            .input-wrapper
+                                label Название проекта
+                                input.input(placeholder="")
+                            .input-wrapper
+                                label Описание проекта
+                                textarea.input(placeholder="")
+                            .input-wrapper
+                                label Необходимая сумма сбора
+                                input.input(placeholder="")
+                            .input-wrapper
+                                label Минимальный взнос
+                                input.input(placeholder="")
+                            .input-wrapper
+                                label Период оборачиваемости
+                                input.input(placeholder="")
+                            .input-wrapper
+                                label ROI
+                                input.input(placeholder="")
+                            .input-wrapper
+                                label Компания - организатор
+                                input.input(placeholder="")
+                            .image-input.main-banner
+                                .label Основной баннер
+                                label(for="main-banner").image-label
+                                    .text Переместите изображение или кликните по данной форме
+                                    input(type="file" id="main-banner" name="main-banner")
+                                    img.preview(src="")
+                            .image-input.banner
+                                .label Вторичный баннер
+                                label(for="banner").image-label
+                                    .text Переместите изображение или кликните по данной форме
+                                    input(type="file" id="banner" name="banner")
+                                    img.preview(src="")
+                            .btn-wrapper
+                                button.btn Сохранить
+        +Modal('modalAddUser', 'ModalFormUser')
+
+
+
+
+
+        include core/scripts

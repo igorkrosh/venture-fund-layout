@@ -6,6 +6,8 @@ function Core()
 
     SetPaymentSelect();
     SetHideMenuBtn();
+    SetInputAvatar();
+    SetTabSwitcher();
 }
 
 function InitChartJs()
@@ -103,3 +105,90 @@ function SetHideMenuBtn()
         $('.sidebar').toggleClass('active')
     })
 }
+
+function SetInputAvatar()
+{
+    $('.image-label input').on('change', function (e) {
+        if (this.files && this.files[0])
+        {
+            let reader = new FileReader();
+            let node = this;
+
+            reader.onload = function (e) {
+                $(node).closest('.image-label').find('.preview').attr('src', e.target.result);
+                $(node).closest('.image-label').find('.preview').addClass('active')
+            }
+
+            reader.readAsDataURL(this.files[0]);
+        }
+    })
+
+    $('.image-label').on('dragover', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        $(this).addClass('drag')
+    });
+
+    $('.image-label').on('dragleave', function (e) {
+        $(this).removeClass('drag')
+    });
+
+    $('.image-label').on('drop', function (e) {
+        $(this).removeClass('drag');
+        e.stopPropagation();
+        e.preventDefault();
+
+        let reader = new FileReader();
+        let node = this;
+
+        reader.onload = function (e) {
+            $(node).closest('.image-label').find('.preview').attr('src', e.target.result);
+            $(node).closest('.image-label').find('.preview').addClass('active')
+        }
+
+        reader.readAsDataURL(e.originalEvent.dataTransfer.files[0]);
+
+        $('.image-label input')[0].files = e.originalEvent.dataTransfer.files;
+    })
+}
+
+function SetTabSwitcher()
+{
+    $('.btn-tab-switch').on('click', function(e) {
+        e.preventDefault();
+        if ($(this).hasClass('active'))
+        {
+            return;
+        }
+
+        $('.btn-tab-switch').removeClass('active');
+        $(this).addClass('active');
+
+        let targetTab = $(this).attr('target');
+
+        SwitchTab(targetTab)
+    })
+}
+
+
+function SwitchTab(target)
+{
+
+    $('.tab.active').animate({
+        opacity: 0
+    }, 500, function() {
+        $('.tab.active').removeClass('active');
+
+        $(`[tab-name="${target}"]`).css('opacity', 0);
+        $(`[tab-name="${target}"]`).addClass('active');
+
+        let tabHeight = $(`[tab-name="${target}"]`)[0].clientHeight;
+        $(`[tab-name="${target}"]`).closest('.tab__viewer').css('height', `${tabHeight}px`)
+
+        $(`[tab-name="${target}"]`).animate({
+            opacity: 1
+        }, 500)
+    })
+}
+

@@ -2,6 +2,17 @@ mixin Modal(id, modalTemplate)
     .modal(id=id)
         +#{modalTemplate}(entry)
 
-mixin ModalTemplate
-    h1 ModalTemplate
+mixin ModalFormUser()
+    +FormUser(true)
+
+mixin ModalUserAvatar()
+    form.user-avatar-form
+        .image-input
+            label(for="avatar").image-label
+                .text Переместите изображение или кликните по данной форме
+                input(type="file" id="avatar" name="avatar")
+                img.preview(src="")
+            .btn-wrapper
+                button.btn Сохранить
+                a.btn.second(href="#" rel="modal:close") Закрыть
     

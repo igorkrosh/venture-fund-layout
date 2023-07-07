@@ -1,4 +1,5 @@
 include core/mixins
+include core/modal
 
 doctype html
 html(lang="ru")
@@ -56,13 +57,14 @@ html(lang="ru")
                                         .col= item[3]
                                         .col= item[4]
                             .btn-wrapper
-                                button.btn Добавить
+                                a.btn(rel="modal:open" href="#modalAddUser") Добавить
                             .page-nav
                                 a(href="#").active 1
                                 a(href="#") 2
                                 a(href="#") 3
                                 span ...
                                 a(href="#") 28
+        +Modal('modalAddUser', 'ModalFormUser')
 
 
 

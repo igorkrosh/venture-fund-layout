@@ -1,5 +1,3 @@
-include modal
-
 mixin IncludeCSS(filename)
     - let path = `assets/css/${filename}`
     link(rel="stylesheet", href=path)
@@ -36,3 +34,48 @@ mixin Project(title, desc, income, deposit, bg)
                 .text Минимальный депозит:
                     span= deposit
             button.btn Подробнее
+
+mixin FormUser(modal)
+    form.add-user
+        .row
+            .input-wrapper
+                label Имя
+                input.input(placeholder="Иван")
+            .input-wrapper
+                label Фамилия
+                input.input(placeholder="Иванов")
+        .row
+            .input-wrapper
+                label Дата рождения
+                input.input(type="date")
+            .input-wrapper
+                label Город
+                input.input(placeholder="Москва")
+        .row
+            .input-wrapper
+                label Номер телефона
+                input.input(placeholder="891234589")
+            .input-wrapper
+                label E-mail
+                input.input(placeholder="mail@mail.ru")
+        .row
+            .input-wrapper
+                label Логин
+                input.input(placeholder="login")
+            .input-wrapper
+                label Пароль
+                input.input(placeholder="password")
+        .row.center
+            .input-wrapper
+                label Уровень доступа
+                .select
+                    select
+                        option Преподаватель
+        if (modal)
+            .btn-wrapper
+                button.btn Сохранить
+                a.btn.second(href="#" rel="modal:close") Закрыть
+                button.btn.red Заблокировать
+        else
+            .btn-wrapper
+                button.btn Сохранить

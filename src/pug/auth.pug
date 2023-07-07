@@ -1,4 +1,5 @@
 include core/mixins
+include core/modal
 
 doctype html
 html(lang="ru")
@@ -9,13 +10,26 @@ html(lang="ru")
         title Document
         include core/head
     body
-        include core/navbar
-        .page
-            include core/sidebar
-            .content
-                .container
-                    +Title('/assets/images/icons/title/4.png', 'Добавить пользователя')
-                    .page-add-user.bg
+        .page.auth-page
+            .logo-wrapper
+                img(src="/assets/images/logo.png").logo
+            .auth-wrapper
+                h1 Вход в личный кабинет
+                .tabs-btn-wrapper
+                    button.btn-tab-switch.active(target="tab-1") Вход
+                    button.btn-tab-switch(target="tab-2") Регистрация
+                .tab-viewer
+                    .tab.active(tab-name="tab-1")
+                        form.auth
+                            .input-wrapper
+                                label E-mail
+                                input.input
+                            .input-wrapper
+                                label Пароль
+                                input.input(type="password")
+                            .btn-wrapper
+                                button.btn Войти
+                    .tab(tab-name="tab-2")
                         form.add-user
                             .row
                                 .input-wrapper
@@ -40,18 +54,14 @@ html(lang="ru")
                                     input.input(placeholder="mail@mail.ru")
                             .row
                                 .input-wrapper
-                                    label Логин
-                                    input.input(placeholder="login")
-                                .input-wrapper
                                     label Пароль
                                     input.input(placeholder="password")
-                            .row.center
                                 .input-wrapper
-                                    label Уровень доступа
-                                    .select
-                                        select
-                                            option Преподаватель
-                        .btn-wrapper
-                            button.btn Сохранить
+                                    label Повторите пароль
+                                    input.input(placeholder="password")
+                            .btn-wrapper
+                                button.btn Регистрация
 
-        include core/scripts
+
+
+    include core/scripts

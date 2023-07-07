@@ -1,3 +1,6 @@
+include core/mixins
+include core/modal
+
 mixin Circle(percent, label, number, small)
     .stats
         .circle-wrap
@@ -7,8 +10,6 @@ mixin Circle(percent, label, number, small)
                 .text= number
                     small= small
         .label= label
-
-include core/mixins
 
 doctype html
 html(lang="ru")

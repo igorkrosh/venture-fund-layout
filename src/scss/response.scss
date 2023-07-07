@@ -348,6 +348,57 @@
         margin-top: 20px;
     }
 
+    .modal
+    {
+        max-width: 90vw;
+        padding: 25px;
+    }
+
+    form.user-avatar-form .avatar-label
+    {
+        width: 200px;
+        height: 200px;
+
+        .text
+        {
+            font-size: 16px;
+        }
+    }
+
+    form.user-avatar-form .btn-wrapper
+    {
+        flex-direction: column;
+        width: 100%;
+
+        .btn
+        {
+            width: 100%;
+
+        }
+    }
+
+    form.add-user .row
+    {
+        width: 100%;
+        margin-bottom: 0;
+
+        .input-wrapper
+        {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+    form.add-user .btn-wrapper
+    {
+        flex-direction: column;
+
+        .btn
+        {
+            margin-bottom: 10px;
+        }
+    }
+
 }
 
 @media(max-width: 576px)
@@ -497,5 +548,22 @@
                 width: 100%;
             }
         }
+    }
+
+    .image-input.banner .image-label, .image-input.main-banner .image-label
+    {
+        width: 300px;
+        height: 300px;
+        margin: auto;
+    }
+
+    .image-input.main-banner .image-label:before
+    {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .image-input.main-banner .image-label:after
+    {
+        transform: translate(-50%, -50%) rotate(45deg);
     }
 }

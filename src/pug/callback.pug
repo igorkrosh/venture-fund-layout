@@ -1,3 +1,6 @@
+include core/mixins
+include core/modal
+
 mixin Ticket(title, date, status)
     .ticket
         .text
@@ -5,8 +8,6 @@ mixin Ticket(title, date, status)
             span.date= date
         .status-wrapper
             .status= status
-
-include core/mixins
 
 doctype html
 html(lang="ru")
