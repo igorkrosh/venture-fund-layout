@@ -6,8 +6,19 @@ function Core()
 
     SetPaymentSelect();
     SetHideMenuBtn();
-    SetInputAvatar();
+    SetInputImage();
     SetTabSwitcher();
+
+    $('#add-project').on('submit', function (e) {
+        e.preventDefault();
+        let formData = new FormData();
+
+        formData.append("banner", $('#banner')[0].files[0]);
+        formData.append("main-banner", $('#main-banner')[0].files[0]);
+
+        console.log(...formData)
+
+    })
 }
 
 function InitChartJs()
@@ -106,7 +117,7 @@ function SetHideMenuBtn()
     })
 }
 
-function SetInputAvatar()
+function SetInputImage()
 {
     $('.image-label input').on('change', function (e) {
         if (this.files && this.files[0])
@@ -149,7 +160,7 @@ function SetInputAvatar()
 
         reader.readAsDataURL(e.originalEvent.dataTransfer.files[0]);
 
-        $('.image-label input')[0].files = e.originalEvent.dataTransfer.files;
+        $(node).find('input')[0].files = e.originalEvent.dataTransfer.files;
     })
 }
 
