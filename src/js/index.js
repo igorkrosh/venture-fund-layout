@@ -8,17 +8,6 @@ function Core()
     SetHideMenuBtn();
     SetInputImage();
     SetTabSwitcher();
-
-    $('#add-project').on('submit', function (e) {
-        e.preventDefault();
-        let formData = new FormData();
-
-        formData.append("banner", $('#banner')[0].files[0]);
-        formData.append("main-banner", $('#main-banner')[0].files[0]);
-
-        console.log(...formData)
-
-    })
 }
 
 function InitChartJs()
